@@ -69,7 +69,7 @@ The given text is Vigenere Cipher and the key is **blorpy**.You can use this onl
 
 This representation is morse code. Use this online [tool](https://gchq.github.io/CyberChef/) to decode.
 
-![img]({{ site.baseurl }}/images/3_morse_code.png)
+![img]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/3_morse_code.png)
 
 
 ## HyperStream Test #2
@@ -78,7 +78,7 @@ This representation is morse code. Use this online [tool](https://gchq.github.io
 
 The above text is encoded as **Bacon Cipher** which can be decoded by this online [Tool](https://gchq.github.io/CyberChef/)
 
-![img]({{ site.baseurl }}/images/4_HYPER_1.png)
+![img]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/4_HYPER_1.png)
 
 ```Flag-ILOUEBACONDONTYOU```
 
