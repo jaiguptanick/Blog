@@ -9,13 +9,13 @@ sitemap:
 ---
 ## About our Site
 
-<span class="image left"><img src="{{ "/images/ism.jpeg" | absolute_url }}" alt="" /></span>
+<span class="image left"><img src="{{ "/images/ism.jpeg" | absolute_url }}" alt="IIT ISM Dhanbad" /></span>
 
 “Launched in 2020 as a community for creative entrepreneurs, bloggers, and small biz rockstars, this site is a quickly growing collective of go-getters from all around the world.” 
 
+<br />
 
-
-### Who am I
+## Who am I
 <div class="box">
   <p>
  <h2>SKILLS</h2>
@@ -29,7 +29,7 @@ sitemap:
 <ul>
 <li><strong>CyberSecurity Division Member,CyberLabs(CyberSociety,IIT-ISMDhanbad)</strong></li>
 </ul>
-<p style="padding-left: 90px;"><em><strong>&gt;&gt;</strong>CyberLabs is the initiative of IIT(ISM)students on the footsteps of MIT MediaLabs,MIT<strong>.</strong></em></p>
+<div style="padding-left: 20px;"><em><strong>&gt;&gt;</strong>CyberLabs is the initiative of IIT(ISM)students on the footsteps of MIT MediaLabs,MIT<strong>.</strong></em></div>
 <ul>
 <li><strong>Digital Marketer and SEO Analyst at Weblibox.com</strong></li>
 <li><strong>Also worked as a SEO Analyst for Macro Webber(A Digital Marketing Agency).</strong></li>
@@ -38,10 +38,10 @@ sitemap:
 <ul>
 <li><strong>Indian Institute of Technology (ISM), Dhanbad &mdash; B.Tech, Petroleum Engineering<br /></strong></li>
 <li>
-<p><strong>Mahatma Hansraj Modern School, Jhansi &mdash; 12th / Board</strong></p>
+<strong>Mahatma Hansraj Modern School, Jhansi &mdash; 12th / Board</strong>
 </li>
 <li>
-<p><strong>Jai Academy, Jhansi &mdash; 10th / Board</strong></p>
+<strong>Jai Academy, Jhansi &mdash; 10th / Board</strong>
 </li>
 </ul>
   </p>

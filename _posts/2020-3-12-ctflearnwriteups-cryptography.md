@@ -2,15 +2,12 @@
 layout: post
 comments: true
 published: true
-title: ctflearn writeup cryptography
+title: "ctflearn writeup cryptography"
 date: 2020-03-12 13:32:20 +0300
 description: ctflearn writeups cryptography. # Add post description (optional)
-img: crypt(easy).jpg
-fig-caption: ctflearn writeup # Add figcaption (optional)
-tags: [Crptography,writeup,ctflearn,easy]
+excerpt: "CTFlearn (Capture The Flag) writeups, code snippets, notes, scripts for beginners.."
+image: "/images/crypt(easy).jpg"
 ---
-CTFlearn (Capture The Flag) writeups, code snippets, notes, scripts for beginners..
-
 
 ## Character Encoding
 ---
@@ -43,7 +40,7 @@ As the challange name suggest it is converted into base64 encoding.
 
 This level again requires brute-forcing XOR. This online [tool](https://gchq.github.io/CyberChef/) can easily do this with the key 17.
 
-![img]({{ site.baseurl }}/images/1_bruXOR_1.png)
+<img src="{{ "/images/1_bruXOR_1.png" | absolute_url }}" alt="XOR CTF" />
 
 
 ## Reverse Polarity
@@ -62,7 +59,7 @@ gwox{RgqssihYspOntqpxs}
 
 The given text is Vigenere Cipher and the key is **blorpy**.You can use this online [tool](https://www.dcode.fr/vigenere-cipher).
 
-![img]({{ site.baseurl }}/images/2_vugenere_1.png)
+![vigenere CTF]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/2_vugenere_1.png)
 
 ```Flag-FLAG{CiphersAreAwesome}```
 
