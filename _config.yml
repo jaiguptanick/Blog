@@ -4,7 +4,7 @@ bio:                'Cyber Security Enthusiast. Always hungry to keep learning'
 description:        "Cyber Security Enthusiast. Always hungry to keep learning"
 locale:             en_US
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://jaiguptanick.github.io/Blog/" # the base hostname & protocol for your site
+url: "https://jaiguptanick.github.io/Blog" # the base hostname & protocol for your site
 
 # Comments
 disqus_shortname:   default
