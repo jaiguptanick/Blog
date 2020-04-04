@@ -1,6 +1,5 @@
 ---
 layout: post
-comments: true
 published: true
 title: "ctflearn writeup cryptography - easy "
 date: 2020-03-12 13:32:20 +0300
