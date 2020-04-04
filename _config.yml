@@ -7,7 +7,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://jaiguptanick.github.io/Blog" # the base hostname & protocol for your site
 
 # Comments
-disqus_shortname:   https-jaiguptanick-github-io-jazz-blog
+disqus_shortname: https-jaiguptanick-github-io-jazz-blog
 
 # Social
 analytics-id:       "default"
