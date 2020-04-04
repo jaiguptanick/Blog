@@ -2,10 +2,10 @@
 layout: post
 comments: true
 published: true
-title: "ctflearn writeup cryptography"
+title: "ctflearn writeup cryptography - easy "
 date: 2020-03-12 13:32:20 +0300
-description: ctflearn writeups cryptography. # Add post description (optional)
-excerpt: "CTFlearn (Capture The Flag) writeups, code snippets, notes, scripts for beginners.."
+description: ctflearn writeups cryptography (easy). # Add post description (optional)
+excerpt: "CTFlearn (Capture The Flag) writeups, code snippets, notes, scripts for beginners cryptography-easy.."
 image: "/images/crypt(easy).jpg"
 ---
 
