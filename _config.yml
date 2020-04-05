@@ -10,7 +10,7 @@ url: "https://jaiguptanick.github.io/Blog" # the base hostname & protocol for yo
 disqus_shortname: https-jaiguptanick-github-io-jazz-blog
 
 # Social
-analytics-id:       "default"
+analytics-id:       "UA-162845146-1"
 twitter:            jaiguptanick
 facebook:           jaiguptanick
 instagram:          jaigupta_nick
@@ -33,7 +33,7 @@ defaults:
   values:
     permalink: "/blog/:title/"
     layout: post
-    author:
+    author: Jai Gupta
 
 # Jekyll
 permalink:          /blog/:title/

@@ -3,9 +3,9 @@ layout: page
 title: Jai Gupta - About - Me
 description: Ctf Learn Writeups
 sitemap:
-    priority: 0.7
-    lastmod: 2017-11-02
-    changefreq: weekly
+    priority: 0.8
+    lastmod: 2020-03-05
+    changefreq: monthly
 ---
 ## About our Site
 

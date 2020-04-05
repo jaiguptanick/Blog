@@ -6,6 +6,10 @@ date: 2020-03-12 13:32:20 +0300
 description: ctflearn writeups cryptography (easy). # Add post description (optional)
 excerpt: "CTFlearn (Capture The Flag) writeups, code snippets, notes, scripts for beginners cryptography-easy.."
 image: "/images/crypt(easy).jpg"
+sitemap:
+    priority: 0.8
+    lastmod: 2020-03-12
+    changefreq: monthly
 ---
 
 ## Character Encoding
