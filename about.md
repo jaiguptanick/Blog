@@ -47,6 +47,6 @@ sitemap:
   </p>
 </div>
 
-<span class="image left"><img src="{{ "/images/pic05.jpg" | absolute_url }}" alt="" /></span>
+<span class="image left"><img src="{{ "/images/logo-jai-gupta.png" | absolute_url }}" alt="Mysitelogo" /></span>
 
 Thanks for spending your precious time here in reading :)
