@@ -1,21 +1,21 @@
 ---
 layout: page
-title: Jai Gupta - About - Me
-description: Ctf Learn Writeups
+title: Jai Gupta - About - Cyber Security Enthusiast
+description: Cyber Security Learner, IIT(ISM) Dhanbad | jaiguptanick
 sitemap:
     priority: 0.8
     lastmod: 2020-03-05
     changefreq: monthly
 ---
-## About our Site
+## Who am I ???
 
 <span class="image left"><img src="{{ "/images/ism.jpeg" | absolute_url }}" alt="IIT ISM Dhanbad" /></span>
 
-“Launched in 2020 as a community for creative entrepreneurs, bloggers, and small biz rockstars, this site is a quickly growing collective of go-getters from all around the world.” 
+“ A student of one of the prestigious colleges of India, working hard to fulfill my dream and to serve something better to society.” 
 
 <br />
 
-## Who am I
+## About Me ..
 <div class="box">
   <p>
  <h2>SKILLS</h2>
