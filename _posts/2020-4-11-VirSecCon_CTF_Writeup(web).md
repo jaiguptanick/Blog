@@ -33,10 +33,11 @@ Boom!! It gives the flag
 Connect here: http://jh2i.com:50016
 
 
+Finally the link to flag-http://jh2i.com:50016/sshh_dont_tell_i_hid_the_flag_here/flag.txt 
+
+```Flag- LLS{htaccess_can_control_what_you_access} ```
+
 <!--
-
-```Flag- c0ded ```
-
 ## Base 2 2 the 6
 ---
 >There are so many different ways of encoding and decoding information nowadays... One of them will work! Q1RGe0ZsYWdneVdhZ2d5UmFnZ3l9
