@@ -79,13 +79,24 @@ gives the proper flag format..
 ```Flag- DawgCTF{ClearEdge_crypto}```
 
 
-<!-- ## BruXOR
+##  Another Pcap
 ---
->There is a technique called bruteforce. Message: q{vpln'bH_varHuebcrqxetrHOXEj No key! Just brute .. brute .. brute ... :D
+>The flag must be somewhere around here...
 
-This level again requires brute-forcing XOR. This online [tool](https://gchq.github.io/CyberChef/) can easily do this with the key 17.
+we are given a .pcap file lets open it in wireshark.
+<br /> Exporting HTTP requests we got 2 files 
 
-<img src="{{ "/images/1_bruXOR_1.png" | absolute_url }}" alt="XOR CTF" />
+
+![dawgCTF]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/dawg/9.png)
+
+
+One of the file contain flag.txt which have flag in base64
+
+
+![dawgCTF]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/dawg/10.png)
+
+
+``` Flag-DawgCTF{3xtr4ct1ng_f1l35_1s_fun} ```
 
 
 ## Reverse Polarity
