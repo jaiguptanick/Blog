@@ -1,51 +1,79 @@
 ---
 layout: post
 published: true
-title: "VirSecCon CTF 2020 Writeup - Web "
+title: "Dawg CTF 2020 Writeup"
 date: 2020-04-11 13:32:20 +0300
-description: VirSecCon CTF 2020 Writeup for Web Catagory | Countdown,.
-excerpt: "VirSecCon CTF 2020 writeups, code snippets, notes, scripts for beginners Web.."
-image: "/images/virsecConCTF/virssecon_logo.png"
+description: Dawg CTF 2020 Writeup | UMBC Cyber Defense - can it be breached?,.
+excerpt: "Dawg CTF 2020 writeups, code snippets, notes, scripts."
+image: "/images/dawg/logos.png"
 sitemap:
     priority: 0.8
     lastmod: 2020-04-11
     changefreq: monthly
 ---
 
-## Countdown
+## UMBC Cyber Defense - can it be breached?
 ---
->We hear something beeping... is there something in the oven?
- Connect here: http://jh2i.com:50036.
-
-Beep reminds time which is stored in the cookies. <br /> Cheking cookies gives us detonate time, increase its value and click link on the page.
+>Is the shield for keeping things in or keeping things out?
+ https://clearedge.ctf.umbccd.io/
 
 
-![Countdown CTF]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/virsecConCTF/virsec1.png)
+The website has a shield image as given in the challenge description as a hint. 
 
 
-Boom!! It gives the flag
+![dawgCTF]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/dawg/1.png)
 
-``` Flag- LLS{saving_lives_with_cookies} ```
 
-## Hot Access
+Downloading and opening the image on the stegsolve tool give us the flag.
+
+![dawgCTF]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/dawg/0.png)
+
+
+``` Flag- DawgCTF{ClearEdge_hiddenImage} ```
+
+## Tracking
 ---
->Access to all the latest modules, hot off the press! What can you access?
-Connect here: http://jh2i.com:50016
+>Connect here: https://clearedge.ctf.umbccd.io/
 
 
-Finally the link to flag-http://jh2i.com:50016/sshh_dont_tell_i_hid_the_flag_here/flag.txt 
+![dawgCTF]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/dawg/4.png)
 
-```Flag- LLS{htaccess_can_control_what_you_access} ```
 
-<!--
-## Base 2 2 the 6
+The red box in the source page looks strange,they are actually ASCII value of some text. <br />
+On convering them gives the flag.
+
+
+![dawgCTF]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/dawg/5.png)
+
+
+
+```Flag- DawgCTF{ClearEdge_uni} ```
+
+
+## let her eat cake
 ---
->There are so many different ways of encoding and decoding information nowadays... One of them will work! Q1RGe0ZsYWdneVdhZ2d5UmFnZ3l9
+>Yet again, we begin on a journey to conquer: She's hungry! https://clearedge.ctf.umbccd.io/. Our
+ only hint, she’s hungry!
 
-As the challange name suggest it is converted into base64 encoding.
 
-```Flag- CTF{FlaggyWaggyRaggy}```
-## BruXOR
+![dawgCTF]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/dawg/2.png)
+
+
+Decoding the Vigenere Cipher using this online [tool](https://www.boxentriq.com/code-breaking/vigenere-cipher) 
+<br />
+
+![dawgCTF]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/dawg/6.png)
+
+Gives us the text but the flag is not accurate though we get the automatic generated key.Using the same key on the [CyberChef Tool](https://gchq.github.io/CyberChef/)  
+gives the proper flag format..
+
+![dawgCTF]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/dawg/3.png)
+
+
+```Flag- DawgCTF{ClearEdge_crypto}```
+
+
+<!-- ## BruXOR
 ---
 >There is a technique called bruteforce. Message: q{vpln'bH_varHuebcrqxetrHOXEj No key! Just brute .. brute .. brute ... :D
 
@@ -68,7 +96,7 @@ The level can be solved by just converting the Binary to Text.
 >The vignere cipher is a method of encrypting alphabetic text by using a series of interwoven Caesar ciphers based on the letters of a keyword.I’m not sure what this means, but it left lying around: blorpy
 gwox{RgqssihYspOntqpxs}
 
-The given text is Vigenere Cipher and the key is **blorpy**.You can use this online [tool](https://www.dcode.fr/vigenere-cipher).
+The given text is Vigenere Cipher and the key is **blorpy**.You can use this online [tool](https://www.boxentriq.com/code-breaking/vigenere-cipher).
 
 ![vigenere CTF]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/2_vugenere_1.png)
 
