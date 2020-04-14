@@ -12,6 +12,13 @@ sitemap:
     changefreq: monthly
 ---
 
+<style>
+/* This stylesheet sets the width of all images to 100%: */
+img {
+  width: 90%;
+}
+</style>
+
 ## Countdown
 ---
 >We hear something beeping... is there something in the oven?
@@ -38,30 +45,6 @@ Finally the link to flag-http://jh2i.com:50016/sshh_dont_tell_i_hid_the_flag_her
 ```Flag- LLS{htaccess_can_control_what_you_access} ```
 
 <!--
-## Base 2 2 the 6
----
->There are so many different ways of encoding and decoding information nowadays... One of them will work! Q1RGe0ZsYWdneVdhZ2d5UmFnZ3l9
-
-As the challange name suggest it is converted into base64 encoding.
-
-```Flag- CTF{FlaggyWaggyRaggy}```
-## BruXOR
----
->There is a technique called bruteforce. Message: q{vpln'bH_varHuebcrqxetrHOXEj No key! Just brute .. brute .. brute ... :D
-
-This level again requires brute-forcing XOR. This online [tool](https://gchq.github.io/CyberChef/) can easily do this with the key 17.
-
-<img src="{{ "/images/1_bruXOR_1.png" | absolute_url }}" alt="XOR CTF" />
-
-
-## Reverse Polarity
----
->I got a new hard drive just to hold my flag, but I'm afraid that it rotted. What do I do? The only thing I could get off of it was this:01000011010101000100011001111011010000100110100101110100010111110100011001101100011010010111000001110000011010010110111001111101
-
-
-The level can be solved by just converting the Binary to Text.
-
-``` Flag-CTF{Bit_Flippin} ```
 
 ## Vigenere Cipher
 ---

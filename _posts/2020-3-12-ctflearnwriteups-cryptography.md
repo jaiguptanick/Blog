@@ -11,6 +11,12 @@ sitemap:
     lastmod: 2020-03-12
     changefreq: monthly
 ---
+<style>
+/* This stylesheet sets the width of all images to 100%: */
+img {
+  width: 90%;
+}
+</style>
 
 ## Character Encoding
 ---
