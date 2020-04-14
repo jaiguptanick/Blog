@@ -10,13 +10,8 @@ sitemap:
     priority: 0.8
     lastmod: 2020-04-11
     changefreq: monthly
-    <style>
-/* This stylesheet sets the width of all images to 100%: */
-img {
-  width: 50%;
-}
-</style>
 ---
+
 <style>
 /* This stylesheet sets the width of all images to 100%: */
 img {
