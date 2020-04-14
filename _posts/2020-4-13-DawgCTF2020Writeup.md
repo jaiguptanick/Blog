@@ -99,7 +99,7 @@ One of the file contain flag.txt which have flag in base64
 ``` Flag-DawgCTF{3xtr4ct1ng_f1l35_1s_fun} ```
 
 
-## Reverse Polarity
+ <!--## Reverse Polarity
 ---
 >I got a new hard drive just to hold my flag, but I'm afraid that it rotted. What do I do? The only thing I could get off of it was this:01000011010101000100011001111011010000100110100101110100010111110100011001101100011010010111000001110000011010010110111001111101
 
@@ -119,24 +119,6 @@ The given text is Vigenere Cipher and the key is **blorpy**.You can use this onl
 
 ```Flag-FLAG{CiphersAreAwesome}```
 
-## Morse Code
----
->..-. .-.. .- --. ... .- -- ..- . .-.. -- --- .-. ... . .. ... -.-. --- --- .-.. -... -.-- - .... . .-- .- -.-- .. .-.. .. -.- . -.-. .... . . ...
-
-This representation is morse code. Use this online [tool](https://gchq.github.io/CyberChef/) to decode.
-
-![img]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/3_morse_code.png)
-
-
-## HyperStream Test #2
----
->I love the smell of bacon in the morning! ABAAAABABAABBABBAABBAABAAAAAABAAAAAAAABAABBABABBAAAAABBABBABABBAABAABABABBAABBABBAABB
-
-The above text is encoded as **Bacon Cipher** which can be decoded by this online [Tool](https://gchq.github.io/CyberChef/)
-
-![img]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/4_HYPER_1.png)
-
-```Flag-ILOUEBACONDONTYOU``` 
 -->
 
 <br>
