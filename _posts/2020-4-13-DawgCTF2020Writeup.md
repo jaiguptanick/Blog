@@ -3,7 +3,7 @@ layout: post
 published: true
 title: "Dawg CTF 2020 Writeup"
 date: 2020-04-11 13:32:20 +0300
-description: Dawg CTF 2020 Writeup | UMBC Cyber Defense - can it be breached?,.
+description: Dawg CTF 2020 Writeup | UMBC Cyber Defense - can it be breached?, Tracking, let her eat cake, Another Pcap,.
 excerpt: "Dawg CTF 2020 writeups, code snippets, notes, scripts."
 image: "/images/dawg/logos.png"
 sitemap:
@@ -98,28 +98,6 @@ One of the file contain flag.txt which have flag in base64
 
 ``` Flag-DawgCTF{3xtr4ct1ng_f1l35_1s_fun} ```
 
-
- <!--## Reverse Polarity
----
->I got a new hard drive just to hold my flag, but I'm afraid that it rotted. What do I do? The only thing I could get off of it was this:01000011010101000100011001111011010000100110100101110100010111110100011001101100011010010111000001110000011010010110111001111101
-
-
-The level can be solved by just converting the Binary to Text.
-
-``` Flag-CTF{Bit_Flippin} ```
-
-## Vigenere Cipher
----
->The vignere cipher is a method of encrypting alphabetic text by using a series of interwoven Caesar ciphers based on the letters of a keyword.I’m not sure what this means, but it left lying around: blorpy
-gwox{RgqssihYspOntqpxs}
-
-The given text is Vigenere Cipher and the key is **blorpy**.You can use this online [tool](https://www.boxentriq.com/code-breaking/vigenere-cipher).
-
-![vigenere CTF]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/2_vugenere_1.png)
-
-```Flag-FLAG{CiphersAreAwesome}```
-
--->
 
 <br>
 <br>
