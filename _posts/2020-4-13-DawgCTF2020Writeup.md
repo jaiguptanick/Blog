@@ -15,7 +15,7 @@ sitemap:
 <style>
 /* This stylesheet sets the width of all images to 100%: */
 img {
-  width: 80%;
+  width: 90%;
 }
 </style>
 ## UMBC Cyber Defense - can it be breached?
