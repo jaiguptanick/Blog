@@ -1,10 +1,10 @@
 ---
 layout: post
 published: true
-title: "VirSecCon CTF 2020 Writeup - Web "
+title: "VirSecCon CTF 2020 Writeup - Web - Solutions "
 date: 2020-04-11 13:32:20 +0300
-description: VirSecCon CTF 2020 Writeup for Web Catagory | Countdown,.
-excerpt: "VirSecCon CTF 2020 writeups, code snippets, notes, scripts for beginners Web.."
+description: VirSecCon CTF 2020 Writeup for Web Catagory | Solutions | Countdown, Hot Access.
+excerpt: "VirSecCon CTF 2020 writeups, solution, code snippets, notes, scripts for beginners Web.."
 image: "/images/virsecConCTF/virssecon_logo.png"
 sitemap:
     priority: 0.8

@@ -1,10 +1,10 @@
 ---
 layout: post
 published: true
-title: "Dawg CTF 2020 Writeup"
+title: "Dawg CTF 2020 Writeup | Solutions"
 date: 2020-04-11 13:32:20 +0300
 description: Dawg CTF 2020 Writeup | UMBC Cyber Defense - can it be breached?, Tracking, let her eat cake, Another Pcap,.
-excerpt: "Dawg CTF 2020 writeups, code snippets, notes, scripts."
+excerpt: "Dawg CTF 2020 writeups, solution, code snippets, notes, scripts."
 image: "/images/dawg/logos.png"
 sitemap:
     priority: 0.8

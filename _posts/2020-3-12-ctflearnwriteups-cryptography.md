@@ -1,10 +1,10 @@
 ---
 layout: post
 published: true
-title: "ctflearn writeup cryptography - easy "
+title: "ctflearn writeup cryptography - easy - solutions "
 date: 2020-03-12 13:32:20 +0300
-description: ctflearn writeups cryptography (easy) | Character Encoding, Hextroadinary, Base 2 2 the 6, BruXOR, Reverse Polarity, Vigenere Cipher, Morse Code, HyperStream Test.
-excerpt: "CTFlearn (Capture The Flag) writeups, code snippets, notes, scripts for beginners cryptography-easy.."
+description: ctflearn writeups cryptography (easy) | Solution | Character Encoding, Hextroadinary, Base 2 2 the 6, BruXOR, Reverse Polarity, Vigenere Cipher, Morse Code, HyperStream Test.
+excerpt: "CTFlearn (Capture The Flag) writeups, solutions, code snippets, notes, scripts for beginners cryptography-easy.."
 image: "/images/crypt(easy).jpg"
 sitemap:
     priority: 0.8
