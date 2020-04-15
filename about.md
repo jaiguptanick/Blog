@@ -46,7 +46,10 @@ sitemap:
 </ul>
   </p>
 </div>
-<p><span class="image left"><img src="https://jaiguptanick.github.io/Blog/images/logo-jai-gupta.png" alt="Mysitelogo" style="width:128px;height:128px; /></span></p>
+<p><span class="image left">
+	<img src="https://jaiguptanick.github.io/Blog/images/logo-jai-gupta.png" alt="Mysitelogo" style="width:128px;height:128px;" /> 
+	</span>
+</p>
 
 
 Thanks for spending your precious time here in reading :)
