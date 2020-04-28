@@ -52,4 +52,4 @@ sitemap:
 </p>
 
 
-Thanks for spending your precious time here in reading :)
+<br />Thanks for spending your precious time here in reading :)
