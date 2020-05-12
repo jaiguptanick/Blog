@@ -106,7 +106,7 @@ http://webfugu.sharkyctf.xyz
 
 
 ![Sharky CTF]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/sharkyctf/2_3.png) 
--->
+
 
 
 One of the file contain flag.txt which have flag in base64
@@ -116,7 +116,7 @@ One of the file contain flag.txt which have flag in base64
 
 
 ``` Flag-   ```
-
+-->
 
 <br>
 <br>
