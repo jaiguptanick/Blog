@@ -3,7 +3,7 @@ layout: post
 published: true
 title: "Sharky CTF Writeup | Web "
 date: 2020-05-12 13:32:20 +0300
-description: Sharky CTF Writeup | .
+description: Sharky CTF Writeup | XXExternalXX, Logs In ! Part 1, Containment Forever, WebFugu.
 excerpt: "Sharky CTF writeups, solution, code snippets, notes, scripts."
 image: "/images/sharkyctf/logo.png"
 sitemap:
@@ -41,7 +41,6 @@ Here is the Sample..
 <root>
     <data>&xxe;</data>
 </root>
-
 ```
 Now since there is no submit option to upload our payload to the server, we need to create a link that can be used to forward the code to this website server.
 Here I have used Pastebin.com to upload the code.
