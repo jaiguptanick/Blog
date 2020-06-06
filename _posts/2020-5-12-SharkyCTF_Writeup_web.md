@@ -5,7 +5,7 @@ title: "Sharky CTF Writeup | Web "
 date: 2020-05-12 13:32:20 +0300
 description: Sharky CTF Writeup | XXExternalXX, Logs In ! Part 1, Containment Forever, WebFugu.
 excerpt: "Sharky CTF writeups, solution, code snippets, notes, scripts."
-image: "/images/sharkyctf/logo.png"
+image: "https://jaiguptanick.github.io/Blog/images/sharkyctf/logo.png"
 sitemap:
     priority: 0.8
     lastmod: 2020-05-12
