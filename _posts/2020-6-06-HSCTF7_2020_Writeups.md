@@ -15,7 +15,7 @@ img {
   width: 90%;
 }
 </style>
-These are all the writeup of web challanges in HSCTF7.<br />
+These are all the writeup of web challenges in HSCTF7.<br />
 ## Blurry Eyes
 ---
 >I can't see :( 
@@ -24,7 +24,7 @@ These are all the writeup of web challanges in HSCTF7.<br />
 ![HSCTF]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/hsctf/hsctf1_1.png)
 
 
-The webpage contain information about CTF's. But there is flag in the bottom which seems blurred!!
+The webpage contain information about CTF's. But there is a flag in the bottom which seems blurred!!
 The source page also does not have anything interesting, moving to inspect element.
 
 ![HSCTF]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/hsctf/hsctf1_2.png)
@@ -34,7 +34,7 @@ Deleting the name blur from the span tag shows the flag.
 
 ![HSCTF]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/hsctf/hsctf1_3.png)
 
-Also you can get the flag by clicking on the "span class="poefKuKjNPojzLDf" as this class stores the flag in the css file.
+Also, you can get the flag by clicking on the "span class="poefKuKjNPojzLDf" as this class stores the flag in the css file.
 
 
 ![HSCTF]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/hsctf/hsctf1_4.png)
@@ -46,18 +46,18 @@ Also you can get the flag by clicking on the "span class="poefKuKjNPojzLDf" as t
 ---
 >https://debt-simulator.web.hsctf.com/
 
-The webpage shows a strange game which says "Very Realistic" as everytime we loose in the game.
+The webpage shows a strange game which says "Very Realistic" as everytime we lose in the game.
 
 
 ![HSCTF]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/hsctf/hsctf2_1.png)
 
 
-Moving to source page didn't showed anything interesting so intersepting request using Burp Suite.
+Moving to source page didn't showed anything interesting so intercepting request using Burp Suite.
 
 
 ![HSCTF]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/hsctf/hsctf2_2.png)
 
-It seems that it is calling some function everytime we create a move in the game.<br>Now we need to find out or gess the correct function to display the flag. Now again searching the .js files in the source code gives a link "https://debt-simulator-login-backend.web.hsctf.com/yolo_0000000000001" from where it is fetching the function.
+It seems that it is calling some function everytime we create a move in the game.<br>Now we need to find out or guess the correct function to display the flag. Now again searching the .js files in the source code gives a link "https://debt-simulator-login-backend.web.hsctf.com/yolo_0000000000001" from where it is fetching the function.
 
 ![HSCTF]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/hsctf/hsctf2_3.png)
 
@@ -104,8 +104,6 @@ Decoding the Vigenere Cipher using this online [tool](https://www.boxentriq.com/
 
 ![HSCTF]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/hsctf/hsctf1_3.png)
 
-Gives us the text but the flag is not accurate though we get the automatic generated key.Using the same key on the [CyberChef Tool](https://gchq.github.io/CyberChef/)  
-gives the proper flag format..
 
 
 ![HSCTF]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/hsctf/hsctf1_3.png)
@@ -121,7 +119,7 @@ gives the proper flag format..
 
 ![HSCTF]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/hsctf/hsctf5_1.png)
 
-This challange is simply XXE vernerable if we move to upload firmware option there it asks to upload a XML.
+This challange is simply XXE vulnerable if we move to upload firmware option there it asks to upload an XML.
 A example file is also given as :
 ```
 <?xml version="1.0" encoding="ISO-8859-1"?>
@@ -132,7 +130,7 @@ A example file is also given as :
 
 ![HSCTF]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/hsctf/hsctf5_2.png)
 
-I tried to upload a XXE payload to check if it is vernerable.
+I tried to upload an XXE payload to check if it is vulnerable.
 ```
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>
@@ -143,7 +141,7 @@ I tried to upload a XXE payload to check if it is vernerable.
 
 ![HSCTF]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/hsctf/hsctf5_3.png)
 
-The website seems XXE(XML External Entity) vernerable.
+The website seems XXE(XML External Entity) vulnerable.
 
 now we need it to display the flag.On the homepage it shows some docker hostname in which only two are active.
 
