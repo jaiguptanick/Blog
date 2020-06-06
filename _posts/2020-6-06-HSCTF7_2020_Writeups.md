@@ -3,8 +3,7 @@ layout: post
 published: true
 title: "HSCTF7 2020 Writeup | Web"
 date: 2020-06-06 13:32:20 +0300
-description: HSCTH 7 Writeup | Blurry Eyes, Debt Simulator, Inspector Gadget, Broken Tokens
-, Traffic Lights W ,.
+description: HSCTH 7 Writeup | Blurry Eyes,Debt Simulator,Inspector Gadget,Broken Tokens,Traffic Lights W
 excerpt: "HSCTF 2020 writeups for web catagory."
 image: "/images/hsctf/logos.png"
 sitemap:
