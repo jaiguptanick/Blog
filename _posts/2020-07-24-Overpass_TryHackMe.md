@@ -107,7 +107,7 @@ using <b>ssh2john.py</b> to convert to hash that john can crack using rockyou.tx
 
 ![Overpass_walkthrough]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/johncrack.png)
 
-It successfully found the passphrase that is <b>james13</b>. Now we can log in via SSH.
+It successfully found the passphrase . Now we can log in via SSH.
 
 ![ssh_Overpass]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/james_ssh_success.png)
 
