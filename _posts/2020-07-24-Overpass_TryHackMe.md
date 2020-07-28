@@ -54,16 +54,20 @@ Now no clue on credentials, also brute-forcing is not the solution as mentioned 
 Just enumerating the files associated with the source code shows us an exciting file named login.js containing the function used in the login form on the /admin page.
 
 ![Overpass_tryhackme_logincode]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/logincode.png)
+
 The function login() in the box is the vulnerable code that will let us bypass the login form. The variable creds take the credentials, and variable response sends them to /api/login for validation, and the statusOrCookie variable takes the response. Till here, everything seems perfect now in the Conditional statement; it checks if the response from the server is "Incorrect Credentials" then it will not allow access otherwise, it will set a cookie named "SessionToken" to statusOrCookie and redirect us to the admin panel. Here lies the vulnerability as a user can change the response of /api/login from "Incorrect Credentials" to anything else using BurpSuite and trick the server to run the else part of the code.<br>Lets see practically:-
 <br>Intercepting request using burp:
 
 ![Overpass solution burpsuite]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/burp1.png)
+
 Now, as we want to change the response, not the request so choosing Action > Do intercept > Response to the request.
 
 ![walkthrough_Overpass_burp]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/doresponse.png)
+
 Forwarding the request to get the response:
 
 ![writeup Overpass response]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/response1.png)
+
 We get the response as expected now change it to anything else or delete "Incorrect Credentials" and again forward the request.
 Now refresh the page to get access.<br>
 Wow! we got access to the page without the credentials.
@@ -76,6 +80,7 @@ There is an alternate method to login as the login.js is creating a cookie in ca
 We can manually create the cookie on the login page named "SessionToken" and assign it any value as there is no code to validate our cookie.
 
 ![Overpass_tryhacme_cookies]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/cookie.png)
+
 Refresh the page to successfully logging in.
 
 ![Overpass]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/logged_via_cookie.png)
@@ -93,9 +98,11 @@ OHH!! It is asking for the passphrase for the provided key. As No passphrase is 
 using <b>ssh2john.py</b> to convert to hash that john can crack using rockyou.txt
 
 ![Overpass_walkthrough]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/johncrack.png)
+
 It successfully found the passphrase . Now we can log in via SSH.
 
 ![ssh_Overpass]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/james_ssh_success.png)
+
 Get the user flag and submit.
 
 ![Overpass_flag]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/flag1.png)
@@ -110,9 +117,11 @@ This part is really interesting as none of the manual methods worked.
 Using automated Tools like linpeas.sh initially not helped until I saw the room tag mentioned "cron".
 
 ![Overpass_root_curl]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/root_curl.png)
+
 User root is connecting to a URL using curl, moving down to check more to results of linpeas shows writable access to file /etc/hosts which is usually only writable by root. 
 
 ![Overpass_etc_hosts]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/etc.png)
+
 Since curl is used by root so if we somehow exploit it we can get the root access.The curl command from cronjob is using a "overpass.thm" as the hostname and we have write access to the hosts file. Meaning we can replace the hostname to make the cronjob think that the hostname is from our IP Address which will let it connect to our given IP address.
 Let us do this practically:
 
@@ -127,6 +136,7 @@ Let us do this practically:
 ```
 
 ![Overpass_flag2]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/flag2.png)
+
 Finally, We got a connection from the Box as ROOT. It was really a nice room containing many fundamentals, and I enjoyed solving it and writing its walkthrough.
 <br>
 <br>
