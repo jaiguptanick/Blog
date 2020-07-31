@@ -66,7 +66,7 @@ This is as same as GET just the input is not displayed in the URL and is send se
 
 
 <!--
----
+	j
 ``` 
 1.There is a user name james.
 2.The ssh key to login via SSH.
@@ -102,4 +102,5 @@ Finally, We got a connection from the Box as ROOT. It was really a nice room con
 ![HTML Injection get]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get1.png)
 ![HTML Injection get]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get1.png)
 ![HTML Injection get]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get1.png)
+
 -->
