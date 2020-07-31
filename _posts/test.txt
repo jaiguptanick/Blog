@@ -1,0 +1,82 @@
+---
+layout: post
+published: false
+title: "A1-Injection | Solutions of bWAPP | Walkthrough of All Levels"
+date: 2020-07-29 23:32:20 +0300
+description: Solutions of HTML Injection - Reflected (GET), HTML Injection - Reflected (POST), HTML Injection - Reflected (Current URL), HTML Injection - Stored (Blog), iFrame Injection, LDAP Injection (Search), Mail Header Injection (SMTP), OS Command Injection, OS Command Injection - Blind, PHP Code Injection, Server-Side Includes (SSI) Injection, SQL Injection (GET/Search), SQL Injection (GET/Select), SQL XML/XPath Injection (Search).
+excerpt: "Writeups of all levels in A1-Injection Catagory such as HTML Injection - Reflected GET, POST, OS Command Injection, SQL Injection and XML Injections"
+image: "https://jaiguptanick.github.io/Blog/images/bwapp/a1/bWAPP_Writeup_solution_logo.png"
+sitemap:
+    priority: 0.8
+    lastmod: 2020-07-29
+    changefreq: monthly
+---
+
+<style>
+/* This stylesheet sets the width of all images to 100%: */
+img {
+  width: 90%;
+}
+</style>
+
+<h2 align="center" > </h2>
+---
+Here is a walkthrough and tutorial of the [bWAPP](http://www.itsecgames.com/) which is a vulnerable web application by itsecgames which you can download and test on your local machine. It has a complete list of OWASP vulnerabilities which we can practially test.
+
+>Hello, today we are going to solve all types of injection of buggy web application such as HTML Injection - Reflected (GET), HTML Injection - Reflected (POST), HTML Injection - Reflected (Cur XML/XPath Injection (Search).
+
+## HTML Injection - Reflected (GET)
+---
+<h3>Security Level: low</h3>
+
+<h3>Security Level: medium</h3>
+
+<h3>Security Level: high</h3>
+
+![Overpass]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/adminpage.png)
+
+
+
+``` 
+1.
+2.
+```
+Saving the Key to a file and reduce its permission using ```chmod 400 james.key ``` and then connecting via SSH:
+
+
+<h3>Privilege Escalation</h3>
+
+``` 
+```
+
+```
+
+```
+## HTML Injection - Reflected (GET)
+---
+<h3>Security Level: low</h3>
+
+<h3>Security Level: medium</h3>
+
+<h3>Security Level: high</h3>
+
+<h3><u><b>BONUS</b></u></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Finally, We got a connection from the Box as ROOT. It was really a nice room containing many fundamentals, and I enjoyed solving it and writing its walkthrough.
+<br>
+<br>
+
+<i>Thanks for your patience, I hope you enjoyed reading. Happy Hacking... </i>
+

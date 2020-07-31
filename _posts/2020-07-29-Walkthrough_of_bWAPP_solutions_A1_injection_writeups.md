@@ -21,25 +21,51 @@ img {
 
 <h2 align="center" > </h2>
 ---
-<!--Here is a walkthrough of the [TryHackMe](https://tryhackme.com/) room “Overpass.” If you haven’t already completed the challenge, you can do so [here](https://tryhackme.com/room/overpass).
+Here is a walkthrough and tutorial of the [bWAPP](http://www.itsecgames.com/) which is a vulnerable web application by itsecgames which you can download and test on your local machine. It has a complete list of OWASP vulnerabilities which we can practially test.<b>The best part of using bWAPP is that it is running on our local system so we have access to its source code, so if we got stuck somewhere then we can analyse its source code as it is very neat and describitive having comments wherever necessary. We can see the function being used to restrict or sanatize the input,then can search for its vulnerablity on the web.</b>
 
->Hello, today we are going to solve an exciting room Overpass, which is quite different for me than other challenges. It is worth solving this room as it contains some essential Owasp Top 10 vulnerability, i.e Broken Authentication. Also, using some automated Privilege Escalation scripts like linpeas.sh makes it more interesting.
+>Hello, today we are going to solve all types of injection of buggy web application such as HTML Injection - Reflected (GET), HTML Injection - Reflected (POST), HTML Injection - Reflected (Current URL), HTML Injection - Stored (Blog), iFrame Injection, LDAP Injection (Search), Mail Header Injection (SMTP), OS Command Injection, OS Command Injection - Blind, PHP Code Injection, Server-Side Includes (SSI) Injection, SQL Injection (GET/Search), SQL Injection (GET/Select), SQL Injection (POST/Search), SQL Injection (POST/Select), SQL Injection (AJAX/JSON/jQuery), SQL Injection (CAPTCHA), SQL Injection (Login Form/Hero), SQL Injection (Login Form/User), SQL Injection (SQLite), SQL Injection (Drupal), SQL Injection - Stored (Blog), SQL Injection - Stored (SQLite), SQL Injection - Stored (User-Agent), SQL Injection - Stored (XML), SQL Injection - Blind - Boolean-Based, SQL Injection - Blind - Time-Based, SQL Injection - Blind (SQLite), SQL Injection - Blind (Web Services/SOAP), XML/XPath Injection (Login Form), XML/XPath Injection (Search).
 
-## Enumeration
+## HTML Injection - Reflected (GET)
 ---
-<h3>Nmap</h3>
+<h3>Security Level: low</h3>
+Simply a text box, trying to input html tags inside it.
 
-![Overpass Walkthrough nmap]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/nmap.png)
+![HTML Injection get]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get1.png)
 
-<h3>Dirsearch Scan</h3>
+Yes, it works,since the method used is get we can even see input in the address bar.
 
-<h3>Logging In via Broken Authentication</h3>
+![HTML Injection get]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get2.png)
 
-![Overpass]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/overpass/adminpage.png)
+Actually if our entered text is displayed anywhere in the page or somewhere then it may be vulnerable to HTML injection. As it is considering our input as tags not as text means we can even find juicy information by just giving it html tags.
+
+<h3>Security Level: medium</h3>
+Trying the same:
+
+![HTML Injection get]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get3.png)
+
+Now, it doesn't work as viewing the sourcecode says:
+
+![HTML Injection get]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get4.png)
+
+It actually replaces "<" and ">" with &lt and &gt respectively. Here we can not use '<' and '>' directly so we can url encode it, it becomes
+```%3c%75%3e%75%6e%64%65%6c%69%6e%65%3c%2f%75%3e%20```
+
+![HTML Injection get]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get5.png)
+
+Now it worked.
+
+## HTML Injection - Reflected (POST)
+---
+This is as same as GET just the input is not displayed in the URL and is send securely. 
+
+## HTML Injection - Reflected (Current URL)
+---
 
 
 
-<h3><u><b>BONUS</b></u></h3>
+
+
+<!--
 ---
 ``` 
 1.There is a user name james.
@@ -56,10 +82,24 @@ Saving the Key to a file and reduce its permission using ```chmod 400 james.key 
 ```
 
 ```
+## HTML Injection - Reflected (GET)
+---
+<h3>Security Level: low</h3>
 
+<h3>Security Level: medium</h3>
 
-Finally, We got a connection from the Box as ROOT. It was really a nice room containing many fundamentals, and I enjoyed solving it and writing its walkthrough. -->
+<h3>Security Level: high</h3>
+
+<h3><u><b>BONUS</b></u></h3>
+Finally, We got a connection from the Box as ROOT. It was really a nice room containing many fundamentals, and I enjoyed solving it and writing its walkthrough.
 <br>
 <br>
 
 <i>Thanks for your patience, I hope you enjoyed reading. Happy Hacking... </i>
+![HTML Injection get]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get1.png)
+![HTML Injection get]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get1.png)
+![HTML Injection get]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get1.png)
+![HTML Injection get]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get1.png)
+![HTML Injection get]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get1.png)
+![HTML Injection get]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get1.png)
+-->
