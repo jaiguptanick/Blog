@@ -48,7 +48,10 @@ Now, it doesn't work as viewing the sourcecode says:
 ![HTML Injection get]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get4.png)
 
 It actually replaces "<" and ">" with &lt and &gt respectively. Here we can not use '<' and '>' directly so we can url encode it, it becomes
-```%3c%75%3e%75%6e%64%65%6c%69%6e%65%3c%2f%75%3e%20```
+
+```
+%3c%75%3e%75%6e%64%65%6c%69%6e%65%3c%2f%75%3e%20
+```
 
 ![HTML Injection get]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get5.png)
 
