@@ -21,7 +21,7 @@ img {
 
 <h2 align="center" > </h2>
 ---
-Here is a walkthrough and tutorial of the [bWAPP](http://www.itsecgames.com/) which is a vulnerable web application by itsecgames which you can download and test on your local machine. It has a complete list of OWASP vulnerabilities which we can practially test.<b>The best part of using bWAPP is that it is running on our local system so we have access to its source code, so if we got stuck somewhere then we can analyse its source code as it is very neat and describitive having comments wherever necessary. We can see the function being used to restrict or sanatize the input,then can search for its vulnerablity on the web.</b>
+Here is a walkthrough and tutorial of the [bWAPP](http://www.itsecgames.com/) which is a vulnerable web application by itsecgames which you can download and test on your local machine. It has a complete list of OWASP vulnerabilities which we can practially test. <b>The best part of using bWAPP is that it is running on our local system so we have access to its source code, so if we got stuck somewhere then we can analyse its source code as it is very neat and describitive having comments wherever necessary. We can see the function being used to restrict or sanatize the input,then can search for its vulnerablity on the web.</b>
 
 >Hello, today we are going to solve all types of injection of buggy web application such as HTML Injection - Reflected (GET), HTML Injection - Reflected (POST), HTML Injection - Reflected (Current URL), HTML Injection - Stored (Blog), iFrame Injection, LDAP Injection (Search), Mail Header Injection (SMTP), OS Command Injection, OS Command Injection - Blind, PHP Code Injection, Server-Side Includes (SSI) Injection, SQL Injection (GET/Search), SQL Injection (GET/Select), SQL Injection (POST/Search), SQL Injection (POST/Select), SQL Injection (AJAX/JSON/jQuery), SQL Injection (CAPTCHA), SQL Injection (Login Form/Hero), SQL Injection (Login Form/User), SQL Injection (SQLite), SQL Injection (Drupal), SQL Injection - Stored (Blog), SQL Injection - Stored (SQLite), SQL Injection - Stored (User-Agent), SQL Injection - Stored (XML), SQL Injection - Blind - Boolean-Based, SQL Injection - Blind - Time-Based, SQL Injection - Blind (SQLite), SQL Injection - Blind (Web Services/SOAP), XML/XPath Injection (Login Form), XML/XPath Injection (Search).
 
@@ -47,7 +47,7 @@ Now, it doesn't work as viewing the sourcecode says:
 
 ![HTML Injection get]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get4.png)
 
-It actually replaces "<" and ">" with &lt and &gt respectively. Here we can not use '<' and '>' directly so we can url encode it, it becomes
+It actually replaces "<" and ">" with &lt and &gt respectively. Here we can not use '<' and '>' directly so we can url encode it, it becomes:
 
 ```
 %3c%75%3e%75%6e%64%65%6c%69%6e%65%3c%2f%75%3e%20
@@ -57,15 +57,47 @@ It actually replaces "<" and ">" with &lt and &gt respectively. Here we can not 
 
 Now it worked.
 
+<h3>Security Level: high</h3>
+
+This is using the ```htmlspecialchars() ``` function which restricts the use of HTML special characters such as '<', '>','"', "'", '&' so we can't injects anything malicious.There seems only one possible option if we can somehow change the browser setting form UTF-8 encoding to UTF-7 so that the page output is UTF-7 as in UTF-7, '<', '>', '"'  have different code points than UTF-8 so they are not escaped unless convert the output to UTF-8.For more detail visit [HERE](https://recalll.co/ask/v/topic/php-XSS-attack-to-bypass-htmlspecialchars%28%29-function-in-value-attribute/5a270ea51126f4451f8b49a4)
+
 ## HTML Injection - Reflected (POST)
 ---
 This is as same as GET just the input is not displayed in the URL and is send securely. 
 
 ## HTML Injection - Reflected (Current URL)
 ---
+<h3>Security Level: low</h3>
+This was just displaying the current url.
 
+![HTML Injection URL]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get6_1.png)
 
+Not much to do so viewing the function used:
 
+![HTML Injection URL]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get8.png)
+
+It is just throwing the http host and requested URL as the output so actually we can mainpulate the HOST name and the GET url by injecting some HTML code as:
+
+![HTML Injection URL]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get6.png)
+
+This shows the output as intended:
+
+![HTML Injection URL]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get7.png)
+
+<h3>Security Level: medium</h3>
+
+Here the function used is ```$url = "<script>document.write(document.URL)</script>"; ```
+
+These type of attacks come under <b>DOM BASED XSS</b> and is restricted to Some types of old browsers which do not encode '<' and '>' in the URL. Most common vulnerable is Internet Explorer, so this attack is restricted to IE.
+Using simple XXS code in the URL gives :
+
+![HTML Injection URL]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/urlm1.png)
+
+Can read more about the related DOM Based XSS [HERE](https://www.acunetix.com/blog/articles/dom-xss-explained/).
+
+<h3>Security Level: high</h3>
+
+Here we can't use the above DOM XSS as htmlspecialchars() function is used to sanitize the URL.
 
 
 <!--
