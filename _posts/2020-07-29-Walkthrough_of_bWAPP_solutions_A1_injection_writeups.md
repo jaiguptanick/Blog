@@ -47,11 +47,8 @@ Now, it doesn't work as viewing the sourcecode says:
 
 ![HTML Injection get]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get4.png)
 
-It actually replaces "<" and ">" with &lt and &gt respectively. Here we can not use '<' and '>' directly so we can url encode it, it becomes:
-
-```
-%3c%75%3e%75%6e%64%65%6c%69%6e%65%3c%2f%75%3e%20
-```
+It actually replaces "<" and ">" with &lt and &gt respectively. Here we can not use '<' and '>' directly so we can url encode it, it becomes
+`%3c%75%3e%75%6e%64%65%6c%69%6e%65%3c%2f%75%3e%20`
 
 ![HTML Injection get]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get5.png)
 
@@ -59,7 +56,7 @@ Now it worked.
 
 <h3>Security Level: high</h3>
 
-This is using the ```htmlspecialchars() ``` function which restricts the use of HTML special characters such as '<', '>','"', "'", '&' so we can't injects anything malicious.There seems only one possible option if we can somehow change the browser setting form UTF-8 encoding to UTF-7 so that the page output is UTF-7 as in UTF-7, '<', '>', '"'  have different code points than UTF-8 so they are not escaped unless convert the output to UTF-8.For more detail visit [HERE](https://recalll.co/ask/v/topic/php-XSS-attack-to-bypass-htmlspecialchars%28%29-function-in-value-attribute/5a270ea51126f4451f8b49a4)
+This is using the `htmlspecialchars()` function which restricts the use of HTML special characters such as '<', '>','"', "'", '&' so we can't injects anything malicious.There seems only one possible option if we can somehow change the browser setting form UTF-8 encoding to UTF-7 so that the page output is UTF-7 as in UTF-7, '<', '>', '"'  have different code points than UTF-8 so they are not escaped unless convert the output to UTF-8.For more detail visit [HERE](https://recalll.co/ask/v/topic/php-XSS-attack-to-bypass-htmlspecialchars%28%29-function-in-value-attribute/5a270ea51126f4451f8b49a4)
 
 ## HTML Injection - Reflected (POST)
 ---
@@ -86,7 +83,7 @@ This shows the output as intended:
 
 <h3>Security Level: medium</h3>
 
-Here the function used is ```$url = "<script>document.write(document.URL)</script>"; ```
+Here the function used is `$url = "<script>document.write(document.URL)</script>"; `
 
 These type of attacks come under <b>DOM BASED XSS</b> and is restricted to Some types of old browsers which do not encode '<' and '>' in the URL. Most common vulnerable is Internet Explorer, so this attack is restricted to IE.
 Using simple XXS code in the URL gives :
@@ -99,7 +96,22 @@ Can read more about the related DOM Based XSS [HERE](https://www.acunetix.com/bl
 
 Here we can't use the above DOM XSS as htmlspecialchars() function is used to sanitize the URL.
 
+## HTML Injection - Stored (Blog)
+---
+<h3>Security Level: low</h3>
+Seeing Text Box means, which is reflecting Data on the page. First thing comes in mind to put and see whether it is executing HTML code or not.
 
+![HTML Injection stored]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/stored_easy_1.png)
+
+Yes, it is executing:
+
+![HTML Injection stored]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/stored_easy_2.png)
+
+Now we can even do **much more** than 
+
+<h3>Security Level: medium</h3>
+
+<h3>Security Level: high</h3>
 <!--
 	j
 ``` 
