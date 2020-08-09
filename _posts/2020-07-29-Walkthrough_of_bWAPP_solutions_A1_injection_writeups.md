@@ -151,27 +151,6 @@ Same is not working in this, rather displaying the tags as text.
 This is using the ` htmlspecialchars() ` function which restricts the use of HTML special characters such as ‘<’, ‘>’,’”’, “’”, ‘&’ so we can’t injects anything malicious.
 
 ![HTML Injection stored]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/stored_medium_hard.png)
-<!--
-<h3>Privilege Escalation</h3>
-## HTML Injection - Reflected (GET)
----
-<h3>Security Level: low</h3>
 
-<h3>Security Level: medium</h3>
-
-<h3>Security Level: high</h3>
-
-<h3><u><b>BONUS</b></u></h3>
-GOODBYE LINE(conclusion).
-<br>
-<br>
-
+MORE COMMING SOON.
 <i>Thanks for your patience, I hope you enjoyed reading. Happy Hacking... </i>
-![HTML Injection get]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get1.png)
-![HTML Injection get]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get1.png)
-![HTML Injection get]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get1.png)
-![HTML Injection get]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get1.png)
-![HTML Injection get]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get1.png)
-![HTML Injection get]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/get1.png)
-
--->
