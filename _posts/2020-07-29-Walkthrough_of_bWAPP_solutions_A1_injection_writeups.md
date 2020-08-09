@@ -144,13 +144,42 @@ When user fills their detail to this form, it will send us the request to our ne
 
 <h3>Security Level: medium & hard </h3>
 
-Same is not working in this, rather displaying the tags as text.
+The above code is not working in this level, rather displaying the tags as text.
 
 ![HTML Injection stored]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/stored.png)
 
-This is using the ` htmlspecialchars() ` function which restricts the use of HTML special characters such as ‘<’, ‘>’,’”’, “’”, ‘&’ so we can’t injects anything malicious.
+If we look at the source code then:
 
 ![HTML Injection stored]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/stored_medium_hard.png)
 
-MORE COMMING SOON.
+This is passing the input data in the xxs_check_3 function for medium(1) and hard(2) level which is using `htmlspecialchars()` function which restricts the use of HTML special characters such as ‘<’, ‘>’,’”’, “’”, ‘&’ so we can’t injects HTML as tags are blocked.
+
+## iFrame Injection
+---
+>The iframe tag specifies an inline frame, which is used to embed another document or page within a current HTML document.
+
+<h3>Security Level: low</h3>
+The iframe is displaying robots.txt in the current page.
+
+![HTML Iframe Injection]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/iframe_1.png)
+
+In this challenge the iframe which has GET parameter in the URL such as ParamUrl, ParamWidth and ParamHeigh. We can eaily change the robots.txt to any other URL for example I changed it to [https://jaiguptanick.github.io/Blog/blog/Overpass_TryHackMe/](https://jaiguptanick.github.io/Blog/blog/Overpass_TryHackMe/) , it displayed the requested webpage.
+
+![HTML Iframe Injection]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/iframe_2.png)
+
+<h3>Security Level: Medium</h3>
+
+In medium(1) level they are using the ```addslashes() ``` function under xss function.Which will eventually add a "\" before single quote ('), double quote ("), backslash ( \ ) and NUL (the NULL byte).
+
+![HTML Iframe Injection]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/iframe_4.png)
+
+But we can escape this by using the **srcdoc** attribute of iframe tag as replaces the content of "src" attribute and then inserting another tag for a new iframe tag. The final URL becomes ```https://localhost/bwapp/iframei.php?ParamUrl=robots.txt&ParamWidth=250&ParamHeight=250" srcdoc></iframe><iframe src=https://jaiguptanick.github.io/Blog/blog/Web-easy/ width=800 height=300>" ```
+
+![HTML Iframe Injection]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/iframe_5.png)
+
+It successfully replaces the iframe restriction, and displayed the required result.
+<h3>Security Level: High</h3>
+This is using `htmlspecialchars()` function which restricts the use of HTML special characters such as ‘<’, ‘>’,’”’, “’”, ‘&’ so we can’t injects HTML as tags are blocked:(
+
+MORE COMMING SOON.<br>
 <i>Thanks for your patience, I hope you enjoyed reading. Happy Hacking... </i>
