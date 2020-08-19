@@ -207,7 +207,7 @@ The command ```www.nsa.gov | time ``` works here.
 
 ![OS commmand injection]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/os_medium_2.png)
 
-As the function used by the server blocks the use of '&' and ; but we can use '|' (pipe).
+As the function used by the server blocks the use of '&' and ; but we can use pipe as before.
 
 <h3>Security Level: high</h3>
 
