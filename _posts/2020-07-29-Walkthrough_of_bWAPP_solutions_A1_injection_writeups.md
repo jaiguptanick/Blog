@@ -203,11 +203,11 @@ The OS Command injection can sometime be very mailcious as we can even get a rem
 
 <h3>Security Level: medium</h3>
 
-The command ```www.nsa.gov | time ``` works here.
+The command ```www.nsa.gov | time ``` works here. 
 
 ![OS commmand injection]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/os_medium_2.png)
 
-As the function used by the server blocks the use of '&' and ; but we can use | (pipe).
+As the function used by the server blocks the use of '&' and ; but we can use '|' (pipe).
 
 <h3>Security Level: high</h3>
 
