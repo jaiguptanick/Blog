@@ -186,8 +186,9 @@ This is using `htmlspecialchars()` function which restricts the use of HTML spec
 <h3>Security Level: low</h3>
 OS command injections comes into play when the code is requesting the commandline to run a command,so we can alter the requested command and provide the malicious query.
 <b>Some useful commands to check for OS vulnerability:-</b>
+
 | Purpose of command | Linux | Windows |
-| ------------------ | ----- | ------- |
+| :----------------: | :---: | :-----: |
 | Name of current user | whoami | whoami |
 | Operating system | uname -a | ver |
 | Network configuration | ifconfig | ipconfig /all |
