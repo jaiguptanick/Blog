@@ -273,6 +273,11 @@ Now, in this challange we can use any PHP commands such as ```phpinfo()``` or ca
 <h3>Security Level: medium and high</h3>
 
 Medium and High Security level are using the ```<?php echo htmlspecialchars($_REQUEST["message"], ENT_QUOTES, "UTF-8");;?> ```
-which sanatize the input and prevent the running of external code provided by replacing the restricted words.
+which sanatize the input and prevent the running of external code provided by replacing the restricted words and it is considering our input as a text.
+
+![PHP code injection]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/php4.png)
+
+
+
 All SQL challanges are covered in PART II of A1-Injection.<br>
 <i>Thanks for your patience, I hope you enjoyed reading. Happy Hacking... </i>
