@@ -227,7 +227,7 @@ Here they are using ```escapeshellcmd(); ``` function which ensure that user exe
 >Blind command injection occurs when the system call that's being made does not return the response of the call to the Document Object Model. Means when the command output is not displayed to us in the webpage, now how can we get to know that there is OS command injection when there is no output shown??
 
 <h3>Security Level: low</h3>
- As we provide the IP nothing happens.
+ As we provided the IP, nothing happened.
 
 ![OS commmand injection blind]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/os_blind_l1.png)
 
@@ -252,6 +252,27 @@ Same works here as in medium level the function used by the server blocks the us
 
 Here again they are using ```escapeshellcmd(); ``` function which ensure that user execute only one command , so we can't chain the commands in this level.
 
+## PHP Code Injection
+---
+>Code Injection consist of injecting code that is then interpreted/executed by the application. This type of attack exploits poor handling of untrusted data.
 
+Here the system is using PHP so we will somehow inject some php code/command. If the server doesn't sanatizes our input, we can exploit and perform unusual activity.
+
+<h3>Security Level: low</h3>
+It is just throwing back the argument value used in the GET request.
+
+![PHP code injection]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/php1.png)
+
+Viewing the source code the function used is: ``` <?php @eval ("echo " . $_REQUEST["message"] . ";");?> ``` <br>
+When a developer uses the PHP ```eval() ```function and passes it untrusted data that an attacker can modify, PHP code injection could be possible. It is a dangerous way to use the eval() function as the user can provide any malicious input in the message argument and it will execute as a code as there is no input validation in eval function.
+Now, in this challange we can use any PHP commands such as ```phpinfo()``` or can even run shell commands directly using ```system('<shell_command>');```
+![PHP code injection]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/php2.png)
+
+![PHP code injection]({{ site.baseurl }}https://jaiguptanick.github.io/Blog/images/bwapp/a1/php3.png)
+
+<h3>Security Level: medium and high</h3>
+
+Medium and High Security level are using the ```<?php echo htmlspecialchars($_REQUEST["message"], ENT_QUOTES, "UTF-8");;?> ```
+which sanatize the input and prevent the running of external code provided by replacing the restricted words.
 All SQL challanges are covered in PART II of A1-Injection.<br>
 <i>Thanks for your patience, I hope you enjoyed reading. Happy Hacking... </i>
