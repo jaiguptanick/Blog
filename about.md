@@ -32,6 +32,7 @@ sitemap:
 <div style="padding-left: 20px;"><em><strong>&gt;&gt;</strong>CyberLabs is the initiative of IIT(ISM)students on the footsteps of MIT MediaLabs,MIT<strong>.</strong></em></div>
 <ul>
 <li><strong>Digital Marketer and SEO Analyst at Weblibox.com</strong></li>
+<li><strong>Intern At Noida Cyber Cell</strong></li>
 <li><strong>Also worked as a SEO Analyst for Macro Webber(A Digital Marketing Agency).</strong></li>
 </ul>
 <h2><strong>EDUCATION</strong></h2>
